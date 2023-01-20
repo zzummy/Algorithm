@@ -4,7 +4,7 @@ class Solution {
     public int solution(int[] array) {
         int answer = 0;
         
-        int[] index = new int[2001];
+        int[] index = new int[1001];
         int max = Integer.MIN_VALUE;
         
         for(int i=0; i<array.length; i++){
@@ -18,8 +18,6 @@ class Solution {
             }else if(index[i] == max) answer = -1;
             else continue;
         }
-        
-        
         
         return answer;
     }
