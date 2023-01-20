@@ -4,17 +4,22 @@ class Solution {
     public String solution(String[] participant, String[] completion) {
         String answer = "";
         
-        // 참가자와 완주자 오름차순 정렬
-        Arrays.sort(participant);
-        Arrays.sort(completion);
+        HashMap<String, Integer> map = new HashMap<>();
         
-        // equals로 비교시 다를 경우가 딱 한명의 미완주자이므로 return
-        for(int i = 0; i < completion.length; i++){
-            if(participant[i].equals(completion[i])) continue;
-            else return participant[i];
+        for(String p : participant){
+            map.put(p, map.getOrDefault(p, 0) + 1);
         }
         
-        // 미완주자가 제일 마지막에 정렬된 참가자일 경우
-        return participant[participant.length-1];
+        for(String c : completion){
+            map.put(c, map.get(c) - 1);
+        }
+        
+        for(String no : map.keySet()){
+            if(map.get(no) != 0){
+                answer = no;
+            }
+        }
+        
+        return answer;
     }
 }
