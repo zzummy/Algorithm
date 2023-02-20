@@ -1,13 +1,21 @@
+import java.util.*;
+
 class Solution {
     boolean solution(String s) {
-        int open = 0, close = 0;
+        boolean answer = true;
+        Stack<Integer> st = new Stack<>();
+       
         for(int i=0; i<s.length(); i++){
-            char c = s.charAt(i);
-            if(c == '(') open++;
-            else close++;
-            if(open < close) return false;
+            if(s.charAt(i) == '(')
+                st.push(1);
+            else{
+                if(st.isEmpty()) return false;
+                else st.pop();
+            }
         }
+        
+        if(!st.isEmpty()) return false;
 
-        return open == close ? true : false;
+        return answer;
     }
 }
