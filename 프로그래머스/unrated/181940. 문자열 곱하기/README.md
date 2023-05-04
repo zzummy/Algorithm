@@ -1,10 +1,10 @@
 # [unrated] 문자열 곱하기 - 181940 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181940) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181940?language=java) 
 
 ### 성능 요약
 
-메모리: 75.2 MB, 시간: 1.77 ms
+메모리: 79.4 MB, 시간: 0.02 ms
 
 ### 구분
 
