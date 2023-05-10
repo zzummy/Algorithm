@@ -1,11 +1,8 @@
 class Solution {
     public String solution(String rny_string) {
-        String answer = "";
-        for(int i=0; i<rny_string.length(); i++){
-            String str = rny_string.charAt(i) +"";
-            if(str.equals("m")) answer += "rn";
-            else answer += str;
-        }
+        // String replaceAll(String regex, String replacement)
+        // 대상 문자열을 원하는 문자 값으로 변환하는 함수
+        String answer = rny_string.replaceAll("m", "rn");
         return answer;
     }
 }
