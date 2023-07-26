@@ -1,33 +1,39 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.Stack;
 
 public class Main {
   public static void main(String[] args) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    int T = Integer.parseInt(br.readLine());
-    boolean[] answer = new boolean[T];
-    for (int t = 0; t < T; t++) {
+    int N = Integer.parseInt(br.readLine());
+
+    StringBuilder sb = new StringBuilder();
+    for (int n = 0; n < N; n++) {
       String input = br.readLine();
-      Stack<Character> st = new Stack<>();
+      Stack<Character> stack = new Stack<>();
 
       for (int i = 0; i < input.length(); i++) {
         char c = input.charAt(i);
 
-        if (st.isEmpty())
-          st.push(c);
-        else if (c == ')' && st.peek() == '(')
-          st.pop();
-        else
-          st.push(c);
+        // ( : 스택에 넣기
+        // ) : 맨 위에 )인지 확인하고 빼기
+        if (stack.isEmpty()) {
+          stack.push(c);
+        } else if (stack.peek() == '(' && c == ')') {
+          stack.pop();
+        } else {
+          stack.push(c);
+        }
       }
 
-      if (st.isEmpty())
-        answer[t] = true;
+      if (stack.size() == 0) {
+        sb.append("YES").append("\n");
+      } else {
+        sb.append("NO").append("\n");
+      }
     }
 
-    for (int i = 0; i < T; i++)
-      System.out.println(answer[i] ? "YES" : "NO");
+    System.out.println(sb);
   }
 }
