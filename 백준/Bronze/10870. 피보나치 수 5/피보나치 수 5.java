@@ -3,19 +3,19 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Main {
+  public static void main(String[] args) throws IOException {
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    int N = Integer.parseInt(br.readLine());
 
-	public static void main(String[] args) throws NumberFormatException, IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    System.out.println(fivo(N));
+  }
 
-		int n = Integer.parseInt(br.readLine());
-		
-		System.out.println(pivo(n));
-	}
+  public static int fivo(int n) {
+    if (n == 0)
+      return 0;
+    if (n == 1)
+      return 1;
 
-	public static int pivo(int n) {
-		if(n == 1) return 1;
-		if(n == 0) return 0;
-		return pivo(n-1) + pivo(n-2);
-	}
-
+    return fivo(n - 1) + fivo(n - 2);
+  }
 }
