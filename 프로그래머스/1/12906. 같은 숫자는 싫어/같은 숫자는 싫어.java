@@ -1,9 +1,8 @@
 import java.util.*;
-import java.io.*;
 
 public class Solution {
-    static Queue<Integer> q = new LinkedList<>();
-    public int[] solution(int []arr) throws IOException{
+    public int[] solution(int []arr) {        
+        Queue<Integer> q = new LinkedList<>();
         
         int tmp = -1;
         for(int i=0; i<arr.length; i++){
@@ -19,7 +18,7 @@ public class Solution {
         for(Integer n : q){
             answer[cnt++] = n;
         }
-
+        
         return answer;
     }
 }
